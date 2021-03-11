@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>选项卡案例</title>
+    <style>
+       *{
+            margin: 0;
+            padding:0;
+            list-style: none;
+        }
+        #selectPage{
+            width:600px;
+            height: 400px;
+            margin:0 auto;
+            border: 1px solid red;
+        }
+        #tabMenu ul li{
+            list-style: none;
+            width: 150px;
+            height: 30px;
+            text-align: center;
+            border: 1px solid #000;
+            line-height: 30px;
+            float: left;
+            box-sizing: border-box;
+        }
+        #tabSection ul p{
+            width: 600px;
+            height: 370px;
+            clear: left;
+            text-align: center;
+            line-height: 370px;
+            background-color: #999999;
+            border: 1px solid red;
+            display: none;
+        }
+        #tabMenu .active{
+            background-color: #e98f37;
+        }
+        #tabSection .active{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+   <div id="selectPage">
+       <div id="tabMenu">
+          <ul>
+              <li class="active" a="1">1</li>
+              <li a="2">2</li>
+              <li a="3">3</li>
+              <li a="4">4</li>
+          </ul>
+       </div>
+   <div id="tabSection">
+       <ul>
+           <p class="active">1</p>
+           <p>2</p>
+           <p>3</p>
+           <p>4</p>
+       </ul>
+   </div>
+   </div>
+       <script type="text/javascript">
+           var tabMenu=document.getElementById("tabMenu");
+           console.log(tabMenu);
+           var tabList=tabMenu.getElementsByTagName("li");
+           var tabContext=document.getElementById("tabSection");
+           var tabP=tabContext.getElementsByTagName("p");
+           for(var i=0;i<tabList.length;i++){
+               tabList[i].setAttribute("a",i);
+               tabList[i].onclick=function(){
+                   for(var j=0;j<tabList.length;j++){
+                       tabList[j].className="";
+                       console.log(tabList[i]);
+                       tabP[j].className="";
+                   }
+                   this.className="active";
+                   var a=this.getAttribute("a");
+                   tabP[a].className="active";
+               }
+           }
+       </script>
+
+</body>
+</html>

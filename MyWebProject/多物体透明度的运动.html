@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>多物体运动框架</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    div{
+        width: 200px;
+        height:200px;
+        background-color: #e85356;
+        float: left;
+        margin-left: 50px;
+        opacity: 0.3;
+        filter: alpha(opacity=30);
+    }
+</style>
+<body>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+</body>
+<script>
+    var div=document.getElementsByTagName("div");
+    for(var i=0;i<div.length;i++){
+        div[i].timer=null;
+        div[i].alpha=30;
+        div[i].onmouseover=function(){
+            startMove(this,100);
+
+        }
+        div[i].onmouseout=function(){
+            startMove(this,30);
+        }
+    }
+    function startMove(obj,target) {
+        clearInterval(obj.timer);
+        obj.timer = setInterval(function () {
+            var speed=(target - obj.alpha)/10;
+            speed = speed> 0 ? Math.ceil(speed) : Math.floor(speed);
+            if (obj.alpha == target) {
+                clearInterval(obj.timer);
+            } else {
+                obj.alpha+=speed;
+                obj.style.opacity = obj.alpha / 100;
+                obj.style.filter = "alpha(opacity=" + obj.alpha + ")";
+            }
+        }, 30);
+    }
+</script>
+</html>

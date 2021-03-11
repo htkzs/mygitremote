@@ -1,0 +1,147 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>闃呰鏈夋俯搴︾櫥褰�</title>
+    <style type="text/css">
+        *{margin:0;padding:0;text-decoration: none;list-style: none;}
+        .welcome{width:1350px;height:80px;}
+        .welcome img{width:320px;height:80px;margin-left:175px ;}
+        .welcome div{width:150px;height:35px;float:right ;margin-right:170px;margin-top:45px ;font-size:12px ; }
+        a{color:black}
+        a:hover{color:red}
+        .nav{width: 1350px;height:40px;background-color:rgb(255,248,240) ;text-align: center;line-height: 40px;font-size:12px ;}
+        .body{width:1350px;height:450px;position: relative;background-image:url(img/鐧诲綍.png) ;}
+        .copyright{width:1350px; height:105px  ;}
+        .input{width:345px ;height:440px ;position: absolute;top:5px;right:180px ;background-color:#fff;box-shadow:0px 2px 8px rgb(244,244,244);}
+        .input ul li{float: left;font-family: "寰蒋闆呴粦";line-height: 55px;margin-left:40px ;cursor:pointer ;}
+        .code{width:170px;height:165px;position: absolute;top:30px ;left:85px;z-index:1 ;}
+        .copyright ul li{float: left;font-size:12px ;margin-top:5px ;margin-left:10px ; }
+        #shadow div{width:300px;height:60px ;border:1px solid #FFFFFF ;}
+        #shadow input{width:250px ;height:36px;border:none ;}
+    </style>
+</head>
+<body>
+<body>
+<div class="welcome">
+    <img src="img/login.png" />
+    <div><a href="">鐧诲綍椤甸潰锛岃皟鏌ラ棶鍗�</a></div>
+</div>
+<div class="nav">渚濇嵁銆婄綉缁滃畨鍏ㄦ硶銆嬶紝涓轰繚闅滄偍鐨勮处鎴峰畨鍏ㄥ拰姝ｅ父浣跨敤锛岃灏藉揩瀹屾垚鎵嬫満鍙烽獙璇侊紒 鏂扮増銆婁含涓滈殣绉佹斂绛栥�嬪凡涓婄嚎锛屽皢鏇存湁鍒╀簬淇濇姢鎮ㄧ殑涓汉闅愮銆�</div>
+<div class="body">
+    <div class="input">
+        <div style="width:100%;height:40px;font-size:12px ;line-height: 40px;text-align: center;border-bottom:1px solid rgb(244,244,244) ;">浜笢涓嶄細浠ヤ换浣曠悊鐢辫姹傛偍杞处姹囨锛岃皑闃茶瘓楠椼��</div>
+        <div style="width:100%;height:55px;font-size:22px ;border-bottom:1px solid rgb(244,244,244)">
+            <ul>
+                <li style="color:red"id="tag1">鎵爜鐧诲綍</li>
+                <li style="color:rgb(244,244,244)">|</li>
+                <li id="tag2">璐︽埛鐧诲綍</li>
+            </ul>
+        </div>
+        <div id="shadow"style="display:none; width:340px;height:250px;background-color:#FFFFFF ;position: absolute;top:95px;left:0px ;clear: left;z-index: 2;">
+            <div style="width:305px ;height:250px;margin: 0 auto; position: relative;">
+                <form action="LoginServlet" method="post" id="form">
+                    <div style="width:305px;height:40px;border:1px solid black;position: absolute;top:30px;left:0px;">
+                        <img src="img/username.png" />
+                        <input style="position: absolute;top:1px;left:42px;"type="text" name="name"   />
+                    </div>
+
+                    <div style="width:305px;height:40px;border:1px solid black;position: absolute;top:100px;left:0px;">
+                        <img src="img/password.png" />
+
+                        <input style="position: absolute;top:1px;left:42px;"type="password" name="pwd"  />
+                    </div>
+                    <div style="width:80px ;height:30px;margin-top:160px ;margin-left:200px ;">
+                        <p style="font-size:14px ;text-align: right;"><a href="">蹇樿瀵嗙爜锛�</a></p>
+                    </div>
+                    <span style="color:red">${err}</span>
+                    <input type="submit" value="鐧� &nbsp; &nbsp;褰�" style=" width:305px;height:35px;background-color:rgb(228,57,60) ;color:#FFFFFF ; text-align:center ;line-height:35px ;cursor:pointer ;">
+            </div>
+
+        </div>
+        <div style="width:100%;height:295px;position:relative;">
+            <div class="code">
+                <img src="img/浜岀淮鐮�.png"/>
+            </div>
+            <div style="width:100%;height:55px;line-height:55px ;text-align: center;font-size:13px ;position: absolute;top:190px ;left:0px ;border-bottom:1px solid rgb(244,244,244)">鎵撳紑 <a href="">鎵嬫満浜笢</a> 鎵弿浜岀淮鐮� </div>
+            <div style="width:100% ;height: 50px;position: absolute;top:245px ;left:0px ;font-size:14px ;border-bottom:1px solid rgb(244,244,244)">
+                <ul>
+                    <li style="margin-left:80px"><a href="">鍏嶈緭鍏�</a></li>
+                    <li style="margin-left:40px"><a href="">鏇村揩 </a></li>
+                    <li style="margin-left:40px"><a href="">鏇村畨鍏�</a></li>
+                </ul>
+            </div>
+        </div>
+        <div style="width:100%;height:50px;font-size:14px ;">
+            <ul>
+                <li style="margin-left:60px"><a href="#">寰俊</a></li>
+                <li style="margin-left:60px"><a href="#">QQ</a></li>
+                <li style="margin-left:60px"><a href="#">绔嬪嵆娉ㄥ唽</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="copyright">
+    <ul>
+        <li style="margin-left:255px ;"><a href="#">鍏充簬鎴戜滑</a>    </li>
+        <li>|</li>
+        <li><a href="#">鑱旂郴鎴戜滑</a></li>
+        <li>|</li>
+        <li><a href="#">浜烘墠鎷涜仒</a></li>
+        <li>|</li>
+        <li> <a href="#">鍟嗗鍏ラ┗</a> </li>
+        <li>|</li>
+        <li><a href="#">骞垮憡鏈嶅姟</a></li>
+        <li>|</li>
+        <li><a href="#">鎵嬫満浜笢</a></li>
+        <li>|</li>
+        <li><a href="#">鍙嬫儏閾炬帴</a>  </li>
+        <li>|</li>
+        <li><a href="#">閿�鍞仈鐩�</a>  </li>
+        <li>|</li>
+        <li><a href="#">浜笢绀惧尯</a> </li>
+        <li>|</li>
+        <li><a href="#">浜笢鍏泭</a></li>
+        <li>|</li>
+        <li> <a href="#">English Site</a></li>
+    </ul>
+    <p style="line-height:40px ;text-align: center;clear: left;font-size:12px ;">Copyright 漏 2004-2019  浜笢JD.com 鐗堟潈鎵�鏈� </p>
+</div>
+</body>
+<script type="text/javascript">
+    var Tag1=document.getElementById("tag1");
+    var Tag2=document.getElementById("tag2");
+    var oshadow=document.getElementById("shadow");
+    Tag2.onclick=function(){
+        Tag1.style.color="#000000";
+        Tag2.style.color="red";
+        oshadow.style.display="block";
+    }
+    Tag1.onclick=function(){
+        Tag2.style.color="#000000";
+        Tag1.style.color="red";
+        oshadow.style.display="none";
+    }
+    var reg=document.getElementById("form");
+    var yhm=document.getElementById("uname");
+    reg.onsubmit=function(){
+        var userReg=/^[a-zA-Z][a-zA-Z0-9_]{4,15}$/;
+        var yhm=document.getElementById("uname");
+        var result=userReg.test(yhm.value);
+        if(!result){
+            alert("鐢ㄦ埛鍚嶉敊璇�!");
+            return false;
+            yhm.focus();
+        }
+        var pwdReg=/^[a-zA-Z][a-zA-Z0-9]{4,15}$/;
+        var pwd=document.getElementById("upwd");
+        var result=pwdReg.test(pwd.value);
+        if(!result){
+            alert("瀵嗙爜閿欒锛�");
+            return false;
+            pwd.focus();
+        }
+    }
+</script>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>实现不同属性的运动</title>
+</head>
+<style type="text/css">
+
+    div{
+        width: 100px;
+        height: 100px;
+        margin-left: 150px;
+        background-color: #e85356;
+        float: left;
+        border:2px solid red;
+    }
+</style>
+<body>
+   <div id="box"></div>
+   <div id="box1"></div>
+</body>
+<script type="text/javascript">
+    /*获取内联属性值*/
+    function getCss(obj,css){
+        return obj.currentStyle?obj.currentStyle[css]: getComputedStyle(obj,null)[css];
+    }
+    var div=document.getElementById("box");
+        div.onmouseover=function(){
+            startMove(div,200);
+    }
+    div.onmouseout=function(){
+        startMove(div,100);
+    }
+    var div1=document.getElementById("box1");
+    div1.onmouseover=function(){
+        startMove(div1,200);
+    }
+    div1.onmouseout=function(){
+        startMove(div1,100);
+    }
+    /*offset属性带来的影响这里调换成·width属性*/
+    function startMove(obj,target){
+        clearInterval(obj.timer);
+        obj.timer=setInterval(function(){
+            cssVal=parseInt(getCss(obj,"height"));
+            speed=(target-cssVal)/10;
+            speed=speed>0?Math.ceil(speed):Math.floor(speed);
+            if(cssVal==target){
+                clearInterval(obj.timer);
+            }else{
+                obj.style.height=cssVal+speed+"px";
+            }
+        },30)
+    }
+</script>
+</html>

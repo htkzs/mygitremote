@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>侧边栏</title>
+</head>
+<style >
+    #box{
+        width:100px;
+        height: 200px;
+        background-color: #e85356;
+        position: absolute;
+        right: 10px;
+        bottom: 0px;
+    }
+</style>
+<body style="height: 2000px">
+<div id="box"></div>
+</body>
+<script>
+    var box=document.getElementById("box") ;
+    var offsetHei=box.offsetHeight;
+    var windowHei=document.documentElement.clientHeight;
+   window.onscroll=function(){
+       startMove(windowHei+document.documentElement.scrollTop-offsetHei);
+    };
+    function startMove(target){
+        clearInterval(timer);
+        var speed=0;
+        speed=(1000-box.offsetTop)/10;
+        if(speed>0){
+            speed=Math.ceil(speed);
+        }else{
+            speed=Math.floor(speed);
+        }
+        timer=setInterval(function(){
+            if(box.offsetTop>=target){
+                clearInterval(timer);
+            }else{
+                /* 这里如果去掉else由于在最后一次判断条件结束时，需将整个计时器执行完够移动距离可能大于1000；*/
+                box.style.Top=box.offsetTop+speed+"px";
+            }
+        },30);
+
+    }
+
+
+
+</script>
+</html>

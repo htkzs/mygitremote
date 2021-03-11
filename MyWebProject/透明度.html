@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>透明度变化</title>
+</head>
+ <style>
+     #box{
+         width: 100px;
+         height: 100px;
+         background-color: red;
+         opacity: 0.3;
+         filter: alpha(opacity=30);
+     }
+ </style>
+
+<body>
+   <div id="box"></div>
+</body>
+<script>
+    var box=document.getElementById("box");
+    box.onmouseover=function(){
+        startMove(box,100) ;
+    }
+    box.onmouseout=function(){
+        startMove(box,30) ;
+    }
+    var alpha=30;
+    var timer=null;
+    function startMove(obj,target) {
+        clearInterval(timer);
+        timer = setInterval(function () {
+            var speed = (target - alpha) / 10;
+            speed > 0 ? speed = Math.ceil(speed) : speed = Math.floor(speed);
+            if (alpha == target) {
+                clearInterval(timer);
+
+            } else {
+                alpha += speed;
+                obj.style.filter = "alpha(opacity=" + alpha + ")";
+                obj.style.opacity = alpha / 100;
+            }
+        }, 30);
+    }
+</script>
+</html>

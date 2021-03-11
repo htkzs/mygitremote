@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>移动框架</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #box{
+            width: 150px;
+            height: 200px;
+            background-color: #e98f37;
+            position: relative;
+            left: -150px;
+        }
+        #moveMenu{
+            width: 30px;
+            height: 80px;
+            background-color: #e85356;
+            color: #fff;
+            position: absolute;
+            top: 39px;
+            left: 150px;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <p id="moveMenu">分享到</p>
+    </div>
+</body>
+<script>
+    var box=document.getElementById("box");
+    box.onmouseover=startMove;
+    box.onmouseout=closeMove;
+    var timer=null;
+    function startMove(){
+        clearInterval(timer);
+        timer=setInterval(function(){
+                if(box.offsetLeft>=0){
+                    clearInterval(timer);
+                }else{
+                    box.style.left=box.offsetLeft+10+"px";
+                }
+        },30);
+
+    }
+    function closeMove(){
+        clearInterval(timer);
+        timer=setInterval(function(){
+            if(box.offsetLeft<=-150){
+                clearInterval(timer);
+            }else{
+                box.style.left=box.offsetLeft-10+"px";
+            }
+        },30);
+    }
+</script>
+</html>
